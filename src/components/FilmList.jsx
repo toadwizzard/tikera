@@ -27,7 +27,7 @@ export function FilmList({ movies, selectedDate, selectedMovie, setSelectedMovie
 
     return isLoading ? <Loader /> : (
         <div className="flex gap-4 flex-wrap w-1/1 justify-center lg:w-1/2 lg:justify-start shrink-0">
-            {movies
+            {movies ? movies
             .filter(movie => movie.screenings.some(screening => screening.date === dateValueFromDate(selectedDate)))
             .sort((a,b) => a.title>b.title ? 1 : (a.title < b.title ? -1 : 0))
             .map(movie => (
@@ -52,7 +52,7 @@ export function FilmList({ movies, selectedDate, selectedMovie, setSelectedMovie
                     deleteButtonOnclick={() => handleDelete(movie.id)}
                 />
                 )
-            )}
+            ) : "No movies found."}
         </div>
     );
 }
