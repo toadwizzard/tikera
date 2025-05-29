@@ -9,7 +9,7 @@ export function Bookings({ ticketPrices, movies }){
 
     const screenings = movies.map(movie => movie.screenings).flat();
 
-    const orderedBookings = bookings ? bookings
+    const orderedBookings = bookings ? bookings.data
         .map(booking => {
             const screening = screenings.find(screening => screening.id === booking.screening.id);
             const dateAndTime = new Date(screening.date + "T" + screening.start_time);

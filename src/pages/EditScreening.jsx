@@ -7,7 +7,7 @@ import { StyledButton } from "../components/StyledButton";
 import toast from "react-hot-toast";
 
 export function EditScreening({ movies, formState, setFormState }){
-    const [mutate, {isLoading, isError}] = useUpdateScreeningMutation();
+    const [mutate, {isLoading}] = useUpdateScreeningMutation();
     const {id : screeningId} = useParams();
     const token = useSelector(state => state.userData.token);
     const navigate = useNavigate();
@@ -50,11 +50,6 @@ export function EditScreening({ movies, formState, setFormState }){
             <label htmlFor="time">Start time</label>
             <input type="time" name="time" id="time" value={formState.start_time}
                 onChange={(e) => setFormState({...formState, start_time: e.target.value})}/>
-            {isError && (
-                <ul className="text-red-400 mt-5 list-none">
-                    <li>Error in screening data</li>
-                </ul>
-            )}
             <StyledButton title="Edit screening" onClick={handleSubmit}/>
         </StyledForm>
     )

@@ -48,18 +48,18 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout/>}>
             <Route index element={
-              <TicketBooker movies={movies}
+              <TicketBooker movies={movies?.data}
                 isGetMoviesLoading={isGetMoviesLoading}
                 setEditMovieFormState={setEditMovieFormState}
                 setEditScreeningFormState={setEditScreeningFormState}
                 ticketPrices={ticketPrices} />} />
-            <Route path="bookings" element={<Bookings ticketPrices={ticketPrices} movies={movies} />} />
+            <Route path="bookings" element={<Bookings ticketPrices={ticketPrices} movies={movies?.data} />} />
             <Route path="addMovie" element={<AddMovie />} />
-            <Route path="addScreening" element={<AddScreening movies={movies} />} />
+            <Route path="addScreening" element={<AddScreening movies={movies?.data} />} />
             <Route path="login" element={<Login/>} />
             <Route path="register" element={<Register/>} />
             <Route path="editMovie/:id" element={<EditMovie formState={editMovieFormState} setFormState={setEditMovieFormState} />} />
-            <Route path="editScreening/:id" element={<EditScreening movies={movies} formState={editScreeningFormState} setFormState={setEditScreeningFormState} />} />
+            <Route path="editScreening/:id" element={<EditScreening movies={movies?.data} formState={editScreeningFormState} setFormState={setEditScreeningFormState} />} />
           </Route>
         </Routes>
       </BrowserRouter>

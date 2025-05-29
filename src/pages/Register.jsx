@@ -44,9 +44,9 @@ export function Register(){
             {isError && (
                 <ul className="text-red-400 mt-5 list-none">
                     <li>Register error:</li>
-                    {Object.values(error.data.errors).map((message, index) => (
+                    {Object.values(error.data.errors).map(messageList => messageList.map((message, index) => (
                         <li key={index}>{message}</li>
-                    ))}
+                    )))}
                 </ul>
             )}
             <StyledButton title="Register" onClick={handleSubmit}/>
