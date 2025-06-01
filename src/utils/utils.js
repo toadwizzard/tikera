@@ -20,7 +20,7 @@ export function dayNumberFromDate(date){
 export function dateValueFromDate(date){
     return [date.getFullYear(),
         (date.getMonth() + 1).toString().padStart(2, "0"),
-        date.getDate()].join("-");
+        date.getDate().toString().padStart(2, "0")].join("-");
 }
 
 export function dateTextFromDate(date){
