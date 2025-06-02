@@ -19,7 +19,7 @@ export function Bookings({ ticketPrices, movies }){
             const decodedSeats = (typeof booking.seats === "string" || booking.seats instanceof String) ?
                 JSON.parse(booking.seats) : booking.seats;
 
-            const adultTickets = decodedTicketTypes.find(ticketType => ticketType.type === "normal");
+            const adultTickets = decodedTicketTypes.find(ticketType => ticketType.type === "normal" || ticketType.type === "adult");
             const studentTickets = decodedTicketTypes.find(ticketType => ticketType.type === "student");
             const seniorTickets = decodedTicketTypes.find(ticketType => ticketType.type === "senior");
             return {
@@ -28,7 +28,7 @@ export function Bookings({ ticketPrices, movies }){
                 dateAndTime,
                 image: booking.screening.movie.image_path,
                 ticketCounts: {
-                    adult: adultTickets ? adultTickets.quantity : 0,
+                    adult: adultTickets ? (adultTickets.quantity ?? adultTickets.count) : 0,
                     student: studentTickets ? studentTickets.quantity : 0,
                     senior: seniorTickets ? seniorTickets.quantity : 0
                 },
