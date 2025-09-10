@@ -44,9 +44,9 @@ function App() {
           color: '#fff'
         }
       }}/>
-      <BrowserRouter>
+      <BrowserRouter basename='/tikera/'>
         <Routes>
-          <Route path="/tikera/" element={<MainLayout/>}>
+          <Route path="/" element={<MainLayout/>}>
             <Route index element={
               <TicketBooker movies={movies?.data}
                 isGetMoviesLoading={isGetMoviesLoading}
