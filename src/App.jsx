@@ -46,7 +46,7 @@ function App() {
       }}/>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout/>}>
+          <Route path="/tikera/" element={<MainLayout/>}>
             <Route index element={
               <TicketBooker movies={movies?.data}
                 isGetMoviesLoading={isGetMoviesLoading}
